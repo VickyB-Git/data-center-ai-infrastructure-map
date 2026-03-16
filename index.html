@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Israel Data Center & AI Infrastructure - Grove Ventures 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --turquoise: #0ACFB1;
+  --deep-green: #035C59;
+  --dark-navy: #1C124F;
+  --light-purple: #7261C7;
+  --tech-purple: #32208C;
+  --midnight: #0C0821;
+  --base-gray: #615E70;
+  --neutral-gray: #DADAE0;
+  --light-gray: #C0BFC6;
+  --bg-green: #F6FAF5;
+  --light-teal: #CFF5EF;
+  --dark-mint: #0B9B85;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--bg-green); color:var(--dark-navy); font-family:'DM Sans',sans-serif; font-weight:400; line-height:1.7; overflow-x:hidden; }
+
+/* NAVBAR */
+.navbar { position:fixed; top:0; left:0; right:0; z-index:100; background:#1C124F; backdrop-filter:blur(16px); border-bottom:1px solid rgba(10,207,177,0.2); padding:0 4rem; height:64px; display:flex; align-items:center; justify-content:space-between; }
+.navbar img { height:28px; width:auto; }
+.navbar-tag { font-size:0.72rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.5); }
+
+/* HERO */
+.hero { background:#1C124F !important; background:linear-gradient(135deg,#1C124F 0%,#035C59 55%,#0ACFB1 100%) !important; min-height:100vh; padding-top:64px; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; }
+.hero-grid { position:absolute; inset:0; background-image:linear-gradient(rgba(10,207,177,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(10,207,177,0.08) 1px,transparent 1px); background-size:56px 56px; mask-image:radial-gradient(ellipse at 70% 40%,black 20%,transparent 70%); }
+.hero-leaf { position:absolute; top:60px; right:80px; width:360px; height:360px; border-radius:50% 10% 50% 10%; background:linear-gradient(135deg,rgba(10,207,177,0.15) 0%,rgba(3,92,89,0.1) 100%); transform:rotate(-20deg); pointer-events:none; }
+.hero-leaf2 { position:absolute; bottom:-80px; left:-60px; width:500px; height:500px; border-radius:50% 10% 50% 10%; background:linear-gradient(135deg,rgba(50,32,140,0.2) 0%,rgba(10,207,177,0.05) 100%); transform:rotate(30deg); pointer-events:none; }
+.hero-inner { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:5rem 4rem; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:0.6rem; background:rgba(10,207,177,0.15); border:1px solid rgba(10,207,177,0.3); border-radius:100px; padding:0.35rem 1rem; font-size:0.72rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--turquoise); margin-bottom:2rem; opacity:0; animation:fadeUp 0.7s 0.2s ease forwards; }
+.hero-eyebrow::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--turquoise); }
+.hero h1 { font-size:clamp(2.6rem,5.5vw,5rem); font-weight:700; line-height:1.08; letter-spacing:-0.025em; color:#fff; max-width:820px; margin-bottom:1.5rem; opacity:0; animation:fadeUp 0.7s 0.35s ease forwards; }
+.hero h1 em { font-style:normal; color:var(--turquoise); }
+.hero-sub { font-size:1.1rem; color:rgba(255,255,255,0.7); max-width:580px; font-weight:300; line-height:1.8; margin-bottom:3.5rem; opacity:0; animation:fadeUp 0.7s 0.5s ease forwards; }
+.hero-kpis { display:flex; gap:0; flex-wrap:wrap; border:1px solid rgba(10,207,177,0.2); border-radius:12px; overflow:hidden; max-width:860px; opacity:0; animation:fadeUp 0.7s 0.65s ease forwards; }
+.hero-kpi { flex:1; min-width:140px; padding:1.6rem 1.8rem; background:rgba(255,255,255,0.06); border-right:1px solid rgba(10,207,177,0.15); backdrop-filter:blur(8px); transition:background 0.2s; }
+.hero-kpi:last-child { border-right:none; }
+.hero-kpi:hover { background:rgba(255,255,255,0.1); }
+.kpi-val { font-size:1.9rem; font-weight:700; color:var(--turquoise); line-height:1; display:block; letter-spacing:-0.02em; }
+.kpi-label { font-size:0.68rem; font-weight:500; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.5); margin-top:0.4rem; display:block; }
+
+/* SECTIONS */
+.container { max-width:1200px; margin:0 auto; padding:0 4rem; }
+section { padding:5rem 0; }
+section:nth-child(even) { background:#fff; }
+.section-eyebrow { display:inline-flex; align-items:center; gap:0.5rem; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.14em; color:var(--dark-mint); margin-bottom:0.8rem; }
+.section-eyebrow::before { content:''; width:20px; height:2px; background:var(--turquoise); border-radius:2px; }
+h2 { font-size:clamp(1.7rem,3vw,2.6rem); font-weight:700; letter-spacing:-0.02em; color:var(--dark-navy); line-height:1.15; margin-bottom:0.8rem; }
+.section-sub { color:var(--base-gray); font-size:0.97rem; max-width:620px; margin-bottom:2.5rem; font-weight:400; line-height:1.75; }
+
+/* DARK SECTION */
+.dark-section { background:#1C124F !important; }
+.dark-section .section-eyebrow { color:var(--turquoise); }
+.dark-section .section-eyebrow::before { background:var(--turquoise); }
+.dark-section h2 { color:#fff; }
+.dark-section .section-sub { color:rgba(255,255,255,0.55); }
+.dark-section .intro-card { background:rgba(255,255,255,0.05); border-color:rgba(10,207,177,0.25); border-left-color:var(--turquoise); }
+.dark-section .intro-card p { color:rgba(255,255,255,0.78); }
+.dark-section .intro-card strong { color:var(--turquoise); }
+.dark-section .metric-card { background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08); }
+.dark-section .metric-card:hover { background:rgba(255,255,255,0.09); box-shadow:0 8px 24px rgba(0,0,0,0.3); }
+.dark-section .metric-card::before { background:linear-gradient(135deg,#035C59,#0ACFB1); }
+.dark-section .metric-val { color:#fff; }
+.dark-section .metric-val.teal { color:var(--turquoise); }
+.dark-section .metric-val.gold { color:#fbbf24; }
+.dark-section .metric-val.purple { color:#a78bfa; }
+.dark-section .metric-lbl { color:rgba(255,255,255,0.45); }
+.dark-section .metric-sub { color:rgba(255,255,255,0.3); }
+.dark-section .quote-block { background:rgba(10,207,177,0.07); border-left-color:var(--turquoise); }
+.dark-section .quote-block p { color:#fff; }
+.dark-section .quote-block cite { color:var(--turquoise); }
+
+/* INTRO CARD */
+.intro-card { background:linear-gradient(135deg,#f0faf8 0%,#fff 100%); border:1px solid rgba(10,207,177,0.2); border-left:4px solid var(--turquoise); border-radius:12px; padding:2.5rem 2.8rem; margin-bottom:2.5rem; }
+.intro-card p { font-size:1rem; line-height:1.85; color:#3a4052; }
+.intro-card p+p { margin-top:1rem; }
+
+/* METRICS */
+.metrics-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1rem; margin:2.5rem 0; }
+.metric-card { background:#fff; border:1px solid var(--neutral-gray); border-radius:12px; padding:1.8rem 1.6rem; position:relative; overflow:hidden; transition:transform 0.2s,box-shadow 0.2s; }
+.metric-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(28,18,79,0.08); }
+.metric-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(135deg,#035C59,#0ACFB1); border-radius:12px 12px 0 0; }
+.metric-icon { font-size:1.4rem; margin-bottom:0.8rem; display:block; }
+.metric-val { font-size:1.85rem; font-weight:700; letter-spacing:-0.02em; color:var(--dark-navy); display:block; line-height:1; margin-bottom:0.4rem; }
+.metric-val.teal { color:var(--dark-mint); }
+.metric-val.gold { color:#d97706; }
+.metric-val.purple { color:var(--tech-purple); }
+.metric-lbl { font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--base-gray); margin-bottom:0.3rem; }
+.metric-sub { font-size:0.78rem; color:var(--light-gray); margin-top:0.4rem; }
+
+/* CATEGORY CARDS */
+.cat-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:2.5rem; }
+.cat-card { background:#fff; border:1px solid var(--neutral-gray); border-radius:12px; padding:2rem 2.2rem; position:relative; overflow:hidden; transition:transform 0.2s,box-shadow 0.2s; }
+.cat-card:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(28,18,79,0.07); }
+.cat-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--cat-color); border-radius:12px 12px 0 0; }
+.cat-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.2rem; }
+.cat-icon { font-size:1.8rem; }
+.cat-badge { font-size:0.62rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; padding:0.25rem 0.7rem; border-radius:100px; background:var(--cat-bg); color:var(--cat-color); }
+.cat-name { font-size:1.05rem; font-weight:700; color:var(--cat-color); margin-bottom:0.3rem; letter-spacing:-0.01em; }
+.cat-funding { font-size:1.55rem; font-weight:700; color:var(--dark-navy); letter-spacing:-0.02em; line-height:1; }
+.cat-meta { font-size:0.67rem; font-weight:500; text-transform:uppercase; letter-spacing:0.1em; color:var(--base-gray); margin-bottom:1rem; }
+.cat-desc { font-size:0.85rem; color:var(--base-gray); line-height:1.7; margin-bottom:1.4rem; }
+.cat-chips { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.chip { font-size:0.62rem; font-weight:500; padding:0.22rem 0.65rem; border-radius:100px; background:var(--bg-green); border:1px solid var(--neutral-gray); color:var(--dark-navy); transition:background 0.15s; }
+.chip.exit { background:rgba(11,155,133,0.08); border-color:rgba(11,155,133,0.3); color:var(--dark-mint); }
+.chip.unicorn { background:rgba(217,119,6,0.08); border-color:rgba(217,119,6,0.3); color:#d97706; }
+
+/* BAR CHART */
+.bar-section { background:var(--dark-navy); padding:5rem 0; }
+.bar-section h2 { color:#fff; }
+.bar-section .section-sub { color:rgba(255,255,255,0.6); }
+.bar-section .section-eyebrow { color:var(--turquoise); }
+.bar-section .section-eyebrow::before { background:var(--turquoise); }
+.bar-chart { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+.bar-row { display:grid; grid-template-columns:240px 1fr 110px; gap:1rem; align-items:center; }
+.bar-name { font-size:0.8rem; font-weight:500; color:rgba(255,255,255,0.75); text-align:right; }
+.bar-track { height:36px; background:rgba(255,255,255,0.06); border-radius:6px; overflow:hidden; }
+.bar-fill { height:100%; border-radius:6px; }
+.bar-val { font-size:0.78rem; font-weight:600; color:rgba(255,255,255,0.6); }
+
+/* TABLE */
+.co-table { width:100%; border-collapse:separate; border-spacing:0; font-size:0.88rem; margin-top:2rem; border-radius:12px; overflow:hidden; border:1px solid var(--neutral-gray); }
+.co-table th { background:var(--dark-navy); color:rgba(255,255,255,0.6); font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; padding:0.9rem 1.2rem; text-align:left; }
+.co-table td { padding:1rem 1.2rem; border-bottom:1px solid var(--neutral-gray); vertical-align:middle; background:#fff; }
+.co-table tr:last-child td { border-bottom:none; }
+.co-table tr:hover td { background:var(--bg-green); }
+.co-name { font-weight:700; font-size:0.9rem; color:var(--dark-navy); letter-spacing:-0.01em; }
+.co-rank { font-size:0.7rem; font-weight:600; color:var(--light-gray); font-variant-numeric:tabular-nums; }
+.stage-pill { font-size:0.6rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em; padding:0.2rem 0.6rem; border-radius:100px; display:inline-block; white-space:nowrap; }
+.s-early { background:rgba(218,218,224,0.3); color:var(--base-gray); }
+.s-seed { background:rgba(11,155,133,0.1); color:var(--dark-mint); }
+.s-a { background:rgba(10,207,177,0.1); color:var(--deep-green); }
+.s-b { background:rgba(114,97,199,0.1); color:var(--light-purple); }
+.s-c { background:rgba(217,119,6,0.1); color:#d97706; }
+.s-de { background:rgba(50,32,140,0.1); color:var(--tech-purple); }
+.s-exit { background:rgba(11,155,133,0.15); color:var(--dark-mint); }
+
+/* UNICORNS */
+.unicorn-section { background:var(--bg-green); }
+.unicorn-row { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
+.unicorn-card { background:#fff; border:1px solid rgba(217,119,6,0.2); border-radius:16px; padding:2.5rem; position:relative; overflow:hidden; }
+.unicorn-card::after { content:'◆'; position:absolute; bottom:-1.5rem; right:-0.5rem; font-size:7rem; color:rgba(217,119,6,0.04); pointer-events:none; }
+.uni-label { font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#d97706; margin-bottom:0.8rem; display:flex; align-items:center; gap:0.4rem; }
+.uni-name { font-size:1.7rem; font-weight:700; color:var(--dark-navy); letter-spacing:-0.02em; margin-bottom:0.4rem; }
+.uni-val { font-size:2.4rem; font-weight:700; color:#d97706; letter-spacing:-0.03em; margin-bottom:0.8rem; line-height:1; }
+.uni-meta { font-size:0.83rem; color:var(--base-gray); line-height:1.7; }
+.uni-cat { display:inline-block; margin-top:1rem; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; padding:0.25rem 0.8rem; background:var(--bg-green); border:1px solid var(--neutral-gray); border-radius:100px; color:var(--dark-mint); }
+
+/* STAGE + INSIGHTS */
+.insights-row { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2.5rem; }
+.insight-box { background:#fff; border:1px solid var(--neutral-gray); border-radius:12px; padding:2rem 2.2rem; }
+.insight-box h3 { font-size:1rem; font-weight:700; color:var(--dark-navy); margin-bottom:1.5rem; letter-spacing:-0.01em; }
+.stage-list { display:flex; flex-direction:column; gap:0.85rem; }
+.stage-row { display:flex; align-items:center; gap:0.8rem; }
+.stage-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+.stage-label { font-size:0.78rem; font-weight:500; color:var(--dark-navy); flex:1; }
+.stage-bar-wrap { width:90px; height:5px; background:var(--neutral-gray); border-radius:10px; overflow:hidden; }
+.stage-bar-inner { height:100%; border-radius:10px; }
+.stage-count { font-size:0.72rem; color:var(--base-gray); font-weight:500; width:28px; text-align:right; }
+.stat-pair { display:flex; gap:2rem; align-items:flex-end; margin-bottom:1.5rem; }
+.stat-num-big { font-size:2.2rem; font-weight:700; letter-spacing:-0.02em; color:var(--dark-mint); line-height:1; }
+.stat-num-small { font-size:2.2rem; font-weight:700; letter-spacing:-0.02em; color:var(--dark-navy); line-height:1; }
+.stat-lbl { font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--base-gray); margin-top:0.3rem; }
+.stat-note { font-size:0.8rem; color:var(--base-gray); line-height:1.65; }
+
+/* FUNDRAISE */
+.raise-section { background:var(--dark-navy); padding:5rem 0; }
+.raise-section h2 { color:#fff; }
+.raise-section .section-sub { color:rgba(255,255,255,0.55); }
+.raise-section .section-eyebrow { color:var(--turquoise); }
+.raise-section .section-eyebrow::before { background:var(--turquoise); }
+.raise-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; margin-top:2rem; }
+.raise-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:1.4rem 1.6rem; transition:background 0.2s; }
+.raise-card:hover { background:rgba(10,207,177,0.07); border-color:rgba(10,207,177,0.2); }
+.raise-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.5rem; }
+.raise-co { font-weight:700; font-size:0.92rem; color:#fff; }
+.raise-amount { font-size:0.8rem; font-weight:700; color:var(--turquoise); }
+.raise-meta { font-size:0.65rem; font-weight:500; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.4); }
+
+/* OPPORTUNITY */
+.opp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-top:2.5rem; }
+.opp-card { background:#fff; border:1px solid var(--neutral-gray); border-radius:12px; padding:2rem; position:relative; overflow:hidden; transition:transform 0.2s,box-shadow 0.2s; }
+.opp-card:hover { transform:translateY(-3px); box-shadow:0 12px 32px rgba(28,18,79,0.07); }
+.opp-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(135deg,#035C59,#0ACFB1); }
+.opp-num { font-size:3.5rem; font-weight:700; color:rgba(10,207,177,0.1); position:absolute; top:0.8rem; right:1.2rem; line-height:1; letter-spacing:-0.03em; }
+.opp-title { font-size:1rem; font-weight:700; color:var(--dark-navy); margin-bottom:0.8rem; letter-spacing:-0.01em; padding-top:0.5rem; }
+.opp-text { font-size:0.83rem; color:var(--base-gray); line-height:1.75; }
+
+/* QUOTE */
+.quote-block { background:linear-gradient(135deg,#f0faf8 0%,var(--light-teal) 100%); border-left:4px solid var(--turquoise); border-radius:0 12px 12px 0; padding:2rem 2.5rem; margin:3rem 0; }
+.quote-block p { font-size:1.25rem; font-weight:600; color:var(--dark-navy); line-height:1.5; letter-spacing:-0.01em; }
+.quote-block cite { display:block; margin-top:0.8rem; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; color:var(--dark-mint); font-style:normal; }
+
+/* CLOSING */
+.closing-strip { background:linear-gradient(135deg,#1C124F 0%,#035C59 55%,#0ACFB1 100%); padding:4rem 0; }
+.closing-inner { max-width:1200px; margin:0 auto; padding:0 4rem; display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(10,207,177,0.15); border-radius:12px; overflow:hidden; }
+.closing-stat { background:rgba(255,255,255,0.06); padding:2.5rem; text-align:center; backdrop-filter:blur(8px); }
+.closing-stat .big { font-size:2.6rem; font-weight:700; color:var(--turquoise); letter-spacing:-0.03em; display:block; line-height:1; }
+.closing-stat .lbl { font-size:0.68rem; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.5); margin-top:0.6rem; display:block; }
+
+/* FOOTER */
+footer { background:#0C0821; padding:2.5rem 4rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+footer img { height:28px; width:auto; }
+.footer-info { font-size:0.68rem; font-weight:500; color:rgba(255,255,255,0.35); text-align:right; line-height:1.8; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+.reveal { opacity:0; transform:translateY(16px); transition:opacity 0.55s ease,transform 0.55s ease; }
+.reveal.in { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width:900px) {
+  .metrics-grid { grid-template-columns:repeat(2,1fr); }
+  .cat-grid { grid-template-columns:1fr; }
+  .opp-grid { grid-template-columns:1fr; }
+  .unicorn-row { grid-template-columns:1fr; }
+  .insights-row { grid-template-columns:1fr; }
+  .bar-row { grid-template-columns:140px 1fr 80px; }
+  .hero-inner,.container { padding:3rem 2rem; }
+  .navbar { padding:0 2rem; }
+  .closing-inner { grid-template-columns:1fr; }
+  footer { padding:2rem; flex-direction:column; align-items:flex-start; }
+  .footer-info { text-align:left; }
+}
+@media (max-width:600px) {
+  .metrics-grid { grid-template-columns:1fr; }
+  .hero-kpis { flex-direction:column; }
+  .hero-kpi { border-right:none; border-bottom:1px solid rgba(10,207,177,0.15); }
+}
+
+/* DARK METRIC CARDS */
+.metric-card.dark {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.metric-card.dark:hover {
+  background: rgba(255,255,255,0.11);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+}
+.metric-card.dark::before {
+  background: linear-gradient(90deg, #035C59, #0ACFB1);
+}
+.metric-card.dark .metric-val { color: #fff; }
+.metric-card.dark .metric-val.teal { color: #0ACFB1; }
+.metric-card.dark .metric-val.gold { color: #fbbf24; }
+.metric-card.dark .metric-val.purple { color: #a78bfa; }
+.metric-card.dark .metric-lbl { color: rgba(255,255,255,0.45); }
+.metric-card.dark .metric-sub { color: rgba(255,255,255,0.28); }
+
+/* RAISE TABLE */
+.raise-table { width:100%; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.1); margin-top:2rem; }
+.raise-thead { display:grid; grid-template-columns:2fr 1.2fr 1.4fr 1fr 0.9fr; background:rgba(10,207,177,0.12); padding:0.75rem 1.4rem; gap:1rem; }
+.raise-th { font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:rgba(255,255,255,0.5); }
+.raise-row { display:grid; grid-template-columns:2fr 1.2fr 1.4fr 1fr 0.9fr; padding:0.85rem 1.4rem; gap:1rem; border-top:1px solid rgba(255,255,255,0.06); align-items:center; transition:background 0.15s; }
+.raise-row:hover { background:rgba(10,207,177,0.06); }
+.raise-td { font-size:0.82rem; color:rgba(255,255,255,0.75); }
+.raise-td.co { font-weight:600; color:#fff; }
+.raise-td.amt { font-weight:700; color:#0ACFB1; text-align:right; }
+.raise-td.dt { color:rgba(255,255,255,0.4); font-size:0.75rem; text-align:right; }
+.raise-td.rnd { color:rgba(255,255,255,0.5); font-size:0.78rem; }
+.rtag { font-size:0.58rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:0.2rem 0.55rem; border-radius:100px; display:inline-block; white-space:nowrap; }
+.rtag.energy { background:rgba(217,119,6,0.18); color:#fbbf24; }
+.rtag.cooling { background:rgba(11,155,133,0.18); color:#0ACFB1; }
+.rtag.compute { background:rgba(114,97,199,0.18); color:#a78bfa; }
+.rtag.storage { background:rgba(3,92,89,0.25); color:#0ACFB1; }
+.rtag.conn { background:rgba(50,32,140,0.25); color:#a78bfa; }
+.rtag.orch { background:rgba(10,207,177,0.12); color:#0ACFB1; }
+
+@media (max-width:760px) {
+  .raise-thead { grid-template-columns:1fr 1fr; }
+  .raise-row { grid-template-columns:1fr 1fr; }
+  .raise-td.rnd, .raise-td.dt { display:none; }
+}
+
+</style>
+</head>
+<body>
+
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAxNiIgaGVpZ2h0PSIzNTkiIHZpZXdCb3g9IjAgMCAxMDE2IDM1OSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwMTQuMiAxNjguMTQ3SDg1NS4yMjlDODU2LjE3NCAxNzAuNjY1IDg1Ni45MDIgMTcyLjkyOCA4NTcuODQ2IDE3NS4xMTJDODc2LjAyOCAyMTYuOTQ2IDkzMi43NTggMjIzLjkxMiA5NjAuNTIyIDE4Ny43MDZDOTYxLjcwMyAxODYuMTUxIDk2Mi44NjQgMTg1LjU4MSA5NjQuNzkyIDE4NS42Qzk3OS42NDkgMTg1LjY3OSA5OTQuNTI1IDE4NS42NCAxMDA5LjQyIDE4NS42NEM5OTguNjk2IDIyMC44MDMgOTU3LjcyOCAyNTguODk4IDkwMi41MTQgMjUzLjMxQzg0NC40MDcgMjQ3LjQwNyA4MDIuNDc0IDE5NC40NTUgODExLjIzMSAxMzUuOTM1QzgxOS43NTEgNzkuMDI4IDg3My42ODYgMzkuMzU4NSA5MzEuODMzIDUwLjI3OTRDOTkwLjUxMSA2MS4yOTg3IDEwMjMuNjkgMTE3LjIyMiAxMDE0LjIgMTY4LjE2NlYxNjguMTQ3Wk05NjkuMTgxIDEzMC41NDNDOTYxLjU2NSAxMDguMjA5IDkzNy4wODcgODcuODYzMSA5MDUuODU5IDkxLjUwMzRDODkxLjM1NyA5My4xOTU2IDg3OS4wNTggOTkuNTkwOCA4NjkuMDQzIDExMC4yMTdDODYzLjUzMyAxMTYuMDYxIDg1OS4zNDIgMTIyLjczMSA4NTYuNTY3IDEzMC41NjNIOTY5LjE2MUw5NjkuMTgxIDEzMC41NDNaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMC45NTcyNzUgMTUxLjA0N0MxLjA3NTM0IDkzLjM1MzEgNDguNjM1NSA0Ny42ODIgMTA1LjcgNDguNDEwMUMxNjEuMDEzIDQ5LjExODUgMjA2LjkgOTUuMzc5OSAyMDYuNzIzIDE1MS4yMjRDMjA2LjUyNiAyMDguNzQxIDE1OS41MTcgMjU0LjkyNCAxMDEuNzI1IDI1My43ODJDNDUuNjA1MSAyNTIuNjggMC45NTcyNzUgMjA2Ljg5MSAwLjk1NzI3NSAxNTEuMDQ3Wk0xNjMuOTg0IDE1MS4xMDZDMTYzLjk4NCAxMTguMjQ1IDEzNi45ODcgOTEuMTA5OSAxMDQuMjgzIDkxLjA5MDJDNzAuNzkyMSA5MS4wNTA4IDQzLjYxNzcgMTE3Ljk2OSA0My42MTc3IDE1MS4xODVDNDMuNjE3NyAxODMuNjkyIDcwLjY1NDQgMjEwLjgwNyAxMDIuNjg5IDIxMS4yNEMxMzUuNjg4IDIxMS42OTMgMTY0LjA0MyAxODUuMDQ5IDE2My45ODQgMTUxLjEwNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik01NTguMTYgMTUxLjE4NUM1NTguMTYgMjA4LjM0NyA1MTIuMDk2IDI1NC4xMTcgNDU0LjI4NCAyNTMuNzYyQzM5Ny41NTQgMjUzLjQyOCAzNTIuMzc1IDIwNi45NSAzNTIuNTEzIDE1MC44N0MzNTIuNjUgOTMuODI1MSAzOTkuNjc5IDQ3LjkzNzYgNDU2LjcwNCA0OC40MDk5QzUxMi4zNTEgNDguODgyMSA1NTguMTYgOTQuOTA3NCA1NTguMTYgMTUxLjE2NVYxNTEuMTg1Wk00NTUuMjI4IDIxMS4xNDFDNDg4LjUyMiAyMTEuMTQxIDUxNS40NDEgMTg0LjQyIDUxNS41NzkgMTUxLjI0NEM1MTUuNzE2IDExOC40MDIgNDg4LjUyMiA5MS4xMDk3IDQ1NS42NDEgOTEuMDlDNDIyLjM2NyA5MS4wOSAzOTUuMTczIDExNy45NjkgMzk1LjE3MyAxNTAuOTQ4QzM5NS4xNzMgMTg0LjE0NCA0MjIuMDkyIDIxMS4xNjEgNDU1LjIyOCAyMTEuMTYxVjIxMS4xNDFaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNTU2Ljc0NCA5NS4wMjU1VjUyLjMyNTdINTU5LjM2MUM1NzYuNjc3IDUyLjMyNTcgNTkzLjk3MyA1Mi4zMjU3IDYxMS4yODkgNTIuMzI1N0M2MjAuNjM2IDUyLjMyNTcgNjI3LjkzNiA1Ny40MDI0IDYzMS4xMDQgNjYuMTk4MkM2NDcuNjczIDExMi4yMjMgNjY0LjIyMSAxNTguMjY4IDY4MC44MDkgMjA0LjI3NEM2ODEuMjAzIDIwNS4zNTYgNjgxLjc3MyAyMDYuODMyIDY4Mi42MzkgMjA3LjIwNkM2ODQuMzEyIDIwNy44OTUgNjg1LjQ1MyAyMDcuMTI3IDY4Ni4xODEgMjA1LjEyQzcwMi43MyAxNTguOTE4IDcxOS4zNTcgMTEyLjc1NSA3MzYuMDA0IDY2LjU5MThDNzM5LjQwOCA1Ny4xNjYzIDc0Ni4zNzQgNTIuMzI1NyA3NTYuNDY5IDUyLjMyNTdDNzczLjU0OCA1Mi4zMjU3IDc5MC42MDkgNTIuMzI1NyA4MDcuNjg5IDUyLjMyNTdIODEwLjQwNFY5NS4wMjU1SDgwNy44MDdDNzk2LjMxNSA5NS4wMjU1IDc4NC44NDMgOTUuMDY0OCA3NzMuMzUyIDk0Ljk4NjFDNzcxLjYyIDk0Ljk4NjEgNzcwLjkzMSA5NS41NzY1IDc3MC4zNjEgOTcuMTUwNkM3NTIuOTI3IDE0NS43NzMgNzM1LjQxNCAxOTQuMzc2IDcxNy45NCAyNDIuOTk5QzcxNi4wMzIgMjQ4LjMzMiA3MTMuODI4IDI0OS44NjYgNzA4LjEwMiAyNDkuODg2QzY5MS42NTEgMjQ5Ljg4NiA2NzUuMjIxIDI0OS44ODYgNjU4Ljc3MSAyNDkuODg2QzY1My40OTcgMjQ5Ljg4NiA2NTEuMjM0IDI0OC4zMTIgNjQ5LjQ0NCAyNDMuMzM0QzYzMS45NSAxOTQuNzMxIDYxNC40MzggMTQ2LjEyOCA1OTYuOTg0IDk3LjUwNDhDNTk2LjMzNCA5NS42OTQ1IDU5NS41NDcgOTQuOTg2MSA1OTMuNTIxIDk1LjAwNThDNTgyLjE4NiA5NS4xMjM5IDU3MC44NzIgOTUuMDY0OCA1NTkuNTM4IDk1LjA2NDhINTU2Ljc0NFY5NS4wMjU1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTIzMC44NjcgMjQ5LjY1QzIzMC44NjcgMjQ4LjUwOSAyMzAuODY3IDI0Ny41NjQgMjMwLjg2NyAyNDYuNjM5QzIzMC44NjcgMTk2LjA2OSAyMzAuODY3IDE0NS40OTggMjMwLjg2NyA5NC45NDY3QzIzMC44NjcgNzMuNjM2MiAyNDcuNDM1IDU1LjEzOTUgMjY4LjY4NyA1Mi43MTkyQzI3MC43OTIgNTIuNDgzIDI3Mi45MTggNTIuMzQ1MyAyNzUuMDQzIDUyLjM0NTNDMzAwLjM2OCA1Mi4zMjU2IDMyNS42OTIgNTIuMzQ1MyAzNTEuMDM3IDUyLjM0NTNIMzUzLjkyOVY5NS4wNDUxSDM1MS4yNTNDMzI2LjQwMSA5NS4wNDUxIDMwMS41NDggOTUuMDQ1MSAyNzYuNjc2IDk1LjA0NTFDMjc0LjQ5OCA5NS4wNDUxIDI3My40MSA5Ni4xMTQyIDI3My40MSA5OC4yNTI1QzI3My40MSAxNDcuNjQzIDI3My40MSAxOTcuMDMzIDI3My40MSAyNDYuNDIzQzI3My40MSAyNDcuNDI2IDI3My40MSAyNDguNDUgMjczLjQxIDI0OS42N0gyMzAuODg3TDIzMC44NjcgMjQ5LjY1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTAuNzIxMTkxIDI1NS44NDhINDMuNTE5NEM0NC4zNDU4IDI3Ni42ODcgNTIuOTg0MiAyOTMuNDcxIDcwLjI2MDkgMzA1LjM5NkM4MS4zNTg5IDMxMy4wNSA5My44NTQgMzE2LjQ1NCAxMDcuMjk0IDMxNS42MjhDMTIzLjExNCAzMTQuNjQ0IDEzNi42MzMgMzA4LjM2NyAxNDcuNTM0IDI5Ni44NTZDMTU4LjM1NiAyODUuNDQzIDE2My43MjggMjcxLjY2OSAxNjQuMDYzIDI1NS44NjhIMjA2Ljg0MUMyMDUuNzM5IDI5MC4zNjIgMTkyLjI2IDMxOC43MTcgMTY0LjA2MyAzMzguNjMxQzEyOS4yOTMgMzYzLjE2OCA5MS44MDc2IDM2NS42NjcgNTQuNDIwNiAzNDUuNDE5QzE5LjUzMjcgMzI2LjUxIDIuNTcwODYgMjk1LjYxNiAwLjcyMTE5MSAyNTUuODQ4WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTIyMy4xNzMgMC4wMjM0Mzc1QzIyNy4yMjEgMC4wMjM0Mzc1IDIyOS43MjEgMC41MjM0MzggMjMzLjQyNSAxLjM4MTE3QzIzNS4yMjEgMS43OTcwNiAyMzUuODI2IDIuNDgzMSAyMzYuMjE5IDQuMTk1MDNDMjQyLjQzNyAzMS4yNzEgMjIzLjE5MyA1OC4yODggMTk1LjUwNyA2MS4zMzhDMTkwLjA1NiA2MS45MjgzIDE4NC43MDQgNjEuNTkzOCAxNzkuMzUyIDYwLjQ3MjJDMTc3Ljg5NiA2MC4xNzcgMTc3LjMyNSA1OS41MDggMTc2Ljk5MSA1OC4wNzE2QzE3MC4xMDQgMjguNTM1OSAxOTIuNjM0IDAuMzE4NTk3IDIyMy4xNzMgMC4wMjM0Mzc1WiIgZmlsbD0iIzBBQ0ZCMSIvPgo8L3N2Zz4=" alt="Grove Ventures">
+  <span class="navbar-tag">Israel AI Infrastructure Report · 2026</span>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" style="background:#1C124F;background:linear-gradient(135deg,#1C124F 0%,#035C59 55%,#0ACFB1 100%);">
+  <div class="hero-grid"></div>
+  <div class="hero-leaf"></div>
+  <div class="hero-leaf2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Grove Ventures · Deep Tech Ecosystem</div>
+    <h1>The Hidden Hardware<br>Powering the <em>AI Revolution</em></h1>
+    <p class="hero-sub">50 Israeli startups building every layer of the data center and AI infrastructure stack - from silicon to cooling, from storage to the grid. Mapping the ecosystem that makes AI possible.</p>
+    <div class="hero-kpis">
+      <div class="hero-kpi">
+        <span class="kpi-val">$4.5B</span>
+        <span class="kpi-label">Total Funding</span>
+      </div>
+      <div class="hero-kpi">
+        <span class="kpi-val">50</span>
+        <span class="kpi-label">Companies</span>
+      </div>
+      <div class="hero-kpi">
+        <span class="kpi-val">2</span>
+        <span class="kpi-label">Unicorns</span>
+      </div>
+      <div class="hero-kpi">
+        <span class="kpi-val">$9.1B</span>
+        <span class="kpi-label">Top Valuation</span>
+      </div>
+      <div class="hero-kpi">
+        <span class="kpi-val">21</span>
+        <span class="kpi-label">Active Fundraisers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- OVERVIEW -->
+<section class="dark-section" style="background:#1C124F !important;">
+  <div class="container">
+    <div class="section-eyebrow">Overview</div>
+    <h2>Why Infrastructure Is the New Frontier</h2>
+    <div class="intro-card reveal">
+      <p>Artificial intelligence doesn't exist in the cloud - it runs on physical infrastructure: racks of GPUs, kilometers of fiber, tanks of cooling fluid, and megawatts of electric power. The AI boom of the 2020s has exposed a hard constraint: the world is running out of the infrastructure needed to train and serve the next generation of models.</p>
+      <p>Israel has responded with one of the densest concentrations of AI infrastructure startups globally. This ecosystem map documents <strong>50 Israeli companies</strong> tackling every layer of the stack - from power generation and liquid cooling to photonic interconnects, AI accelerators, and intelligent storage systems. Together, they have raised over <strong>$4.5B</strong>, built 2 unicorns, and recorded 3 exits. As Grove Ventures sees it: whoever controls the infrastructure controls the future of AI - and Israeli founders are competing to build it.</p>
+    </div>
+    <div class="metrics-grid reveal">
+      <div class="metric-card dark">
+        <span class="metric-icon">💰</span>
+        <span class="metric-val teal">$4.5B</span>
+        <div class="metric-lbl">Total Funding Raised</div>
+        <div class="metric-sub">Across all 50 companies</div>
+      </div>
+      <div class="metric-card dark">
+        <span class="metric-icon">🦄</span>
+        <span class="metric-val gold">$9.1B</span>
+        <div class="metric-lbl">Largest Valuation</div>
+        <div class="metric-sub">VAST Data - Storage &amp; Memory</div>
+      </div>
+      <div class="metric-card dark">
+        <span class="metric-icon">✨</span>
+        <span class="metric-val gold">2</span>
+        <div class="metric-lbl">Unicorns</div>
+        <div class="metric-sub">VAST Data - WEKA</div>
+      </div>
+      <div class="metric-card dark">
+        <span class="metric-icon">🚀</span>
+        <span class="metric-val teal">3</span>
+        <div class="metric-lbl">Exits</div>
+        <div class="metric-sub">SolarEdge - Nostromo - GenCell</div>
+      </div>
+      <div class="metric-card dark">
+        <span class="metric-icon">👥</span>
+        <span class="metric-val">173</span>
+        <div class="metric-lbl">Avg Headcount</div>
+        <div class="metric-sub">Median: 34 employees</div>
+      </div>
+      <div class="metric-card dark">
+        <span class="metric-icon">📊</span>
+        <span class="metric-val">$128M</span>
+        <div class="metric-lbl">Avg Funding</div>
+        <div class="metric-sub">Median: $63M per company</div>
+      </div>
+      <div class="metric-card dark">
+        <span class="metric-icon">🔥</span>
+        <span class="metric-val purple">21</span>
+        <div class="metric-lbl">Active Fundraisers</div>
+        <div class="metric-sub">Last round in 2024 or later</div>
+      </div>
+      <div class="metric-card dark">
+        <span class="metric-icon">🏗️</span>
+        <span class="metric-val">6</span>
+        <div class="metric-lbl">Categories</div>
+        <div class="metric-sub">Full stack coverage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM MAP PLACEHOLDER -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Ecosystem Map</div>
+    <h2>Six Categories. One Mission.</h2>
+    <p class="section-sub">The Israeli AI infrastructure ecosystem spans every layer of the stack. Each category represents a distinct bottleneck the AI era must solve.</p>
+    <div class="reveal" style="background:#f0faf8;border:2px dashed rgba(10,207,177,0.35);border-radius:16px;padding:3rem;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:1rem;">🗺️</div>
+      <div style="font-size:1rem;font-weight:600;color:#035C59;margin-bottom:0.5rem;">Visual Ecosystem Map</div>
+      <div style="font-size:0.85rem;color:#615E70;">Placeholder - visual map to be added here</div>
+    </div>
+  </div>
+</section>
+
+<!-- BAR CHART -->
+<section class="bar-section">
+  <div class="container">
+    <div class="section-eyebrow">Capital Flows</div>
+    <h2>Funding by Category</h2>
+    <p class="section-sub">Storage and Connectivity dominate capital formation - driven by the extraordinary scale-up of AI training workloads demanding terabytes of data per second.</p>
+    <div class="bar-chart reveal">
+      <div class="bar-row">
+        <div class="bar-name">Storage &amp; Memory</div>
+        <div class="bar-track"><div class="bar-fill" style="width:95%;background:linear-gradient(90deg,#035C59,#0ACFB1);"></div></div>
+        <div class="bar-val">$1.3B</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Connectivity</div>
+        <div class="bar-track"><div class="bar-fill" style="width:94%;background:linear-gradient(90deg,#32208C,#7261C7);"></div></div>
+        <div class="bar-val">$1.3B</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Energy</div>
+        <div class="bar-track"><div class="bar-fill" style="width:65%;background:linear-gradient(90deg,#d97706,#fbbf24);"></div></div>
+        <div class="bar-val">$928M</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Compute</div>
+        <div class="bar-track"><div class="bar-fill" style="width:53%;background:linear-gradient(90deg,#7261C7,#a78bfa);"></div></div>
+        <div class="bar-val">$759M</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Orchestration &amp; Security</div>
+        <div class="bar-track"><div class="bar-fill" style="width:3.6%;background:linear-gradient(90deg,#0ACFB1,#CFF5EF);"></div></div>
+        <div class="bar-val">$51M</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-name">Cooling</div>
+        <div class="bar-track"><div class="bar-fill" style="width:3.5%;background:linear-gradient(90deg,#0B9B85,#CFF5EF);"></div></div>
+        <div class="bar-val">$50M</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STAGE + SCALE -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Ecosystem Maturity</div>
+    <h2>Stage Distribution &amp; Scale</h2>
+    <p class="section-sub">The ecosystem spans the full maturity spectrum. Heavy concentration in early stages signals enormous future funding potential.</p>
+    <div class="insights-row reveal">
+      <div class="insight-box">
+        <h3>Stage Distribution (50 companies)</h3>
+        <div class="stage-list">
+          <div class="stage-row">
+            <div class="stage-dot" style="background:#DADAE0;"></div>
+            <div class="stage-label">Early / Venture Unknown</div>
+            <div class="stage-bar-wrap"><div class="stage-bar-inner" style="width:100%;background:#DADAE0;"></div></div>
+            <div class="stage-count">15</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot" style="background:#0B9B85;"></div>
+            <div class="stage-label">Seed / Pre-Seed</div>
+            <div class="stage-bar-wrap"><div class="stage-bar-inner" style="width:66%;background:#0B9B85;"></div></div>
+            <div class="stage-count">10</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot" style="background:#0ACFB1;"></div>
+            <div class="stage-label">Series A</div>
+            <div class="stage-bar-wrap"><div class="stage-bar-inner" style="width:60%;background:#0ACFB1;"></div></div>
+            <div class="stage-count">9</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot" style="background:#7261C7;"></div>
+            <div class="stage-label">Series B</div>
+            <div class="stage-bar-wrap"><div class="stage-bar-inner" style="width:26%;background:#7261C7;"></div></div>
+            <div class="stage-count">4</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot" style="background:#1C124F;"></div>
+            <div class="stage-label">Series C</div>
+            <div class="stage-bar-wrap"><div class="stage-bar-inner" style="width:26%;background:#1C124F;"></div></div>
+            <div class="stage-count">4</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot" style="background:#32208C;"></div>
+            <div class="stage-label">Series D-F</div>
+            <div class="stage-bar-wrap"><div class="stage-bar-inner" style="width:33%;background:#32208C;"></div></div>
+            <div class="stage-count">5</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-dot" style="background:#035C59;"></div>
+            <div class="stage-label">Exited</div>
+            <div class="stage-bar-wrap"><div class="stage-bar-inner" style="width:20%;background:#035C59;"></div></div>
+            <div class="stage-count">3</div>
+          </div></div>
+      </div>
+      <div class="insight-box">
+        <h3>Scale Insights</h3>
+        <div style="margin-bottom:0.4rem;">
+          <div style="font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#615E70;margin-bottom:0.8rem;">Headcount</div>
+          <div class="stat-pair">
+            <div><div class="stat-num-big">173</div><div class="stat-lbl">Average</div></div>
+            <div><div class="stat-num-small">34</div><div class="stat-lbl">Median</div></div>
+          </div>
+          <div class="stat-note">Today's deep tech companies need less headcount to build great products. AI capabilities compress development cycles, automate testing and operations, and allow small, highly-focused teams to move at previously impossible speed. A median of 34 employees building infrastructure that powers global AI clusters is a testament to this shift.</div>
+        </div>
+        <div style="margin-top:1.8rem;">
+          <div style="font-size:0.65rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#615E70;margin-bottom:0.8rem;">Funding Momentum</div>
+          <div class="stat-pair">
+            <div><div class="stat-num-big">$128M</div><div class="stat-lbl">Average</div></div>
+            <div><div class="stat-num-small">21</div><div class="stat-lbl">Active Rounds</div></div>
+          </div>
+          <div class="stat-note">Funding activity has accelerated sharply since 2024, with 21 companies closing rounds - including several mega-rounds driven by surging global demand for AI infrastructure. DriveNets alone raised $650M in 2025. The ecosystem is moving from early validation into full-scale capital deployment.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITY -->
+<section>
+<div class="container">
+    <div class="section-eyebrow">For Founders &amp; Investors</div>
+    <h2>The Opportunity Ahead</h2>
+    <p class="section-sub">The AI infrastructure build-out is early. The next decade will require orders of magnitude more compute, power, and connectivity - creating generational company-building opportunities.</p>
+    <div class="opp-grid reveal">
+      <div class="opp-card">
+        <div class="opp-num">01</div>
+        <div class="opp-title">Cooling is Critically Underfunded</div>
+        <div class="opp-text">Only $50M raised across 8 companies - yet cooling is one of the hardest physical constraints on data center density. With GPU thermal output rising sharply, immersion and liquid cooling are becoming mandatory infrastructure.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-num">02</div>
+        <div class="opp-title">Orchestration is the Next Wave</div>
+        <div class="opp-text">With only $51M raised across 7 companies, orchestration &amp; security is underfunded relative to its strategic importance. As AI clusters scale, intelligent management software becomes the critical differentiator.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-num">03</div>
+        <div class="opp-title">Connectivity Goes Photonic</div>
+        <div class="opp-text">With $1.3B deployed across 8 companies, the shift from copper to silicon photonics in data centers is well underway. AI clusters requiring massive interconnect bandwidth are driving this transformation.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-num">04</div>
+        <div class="opp-title">Storage Creates Unicorns</div>
+        <div class="opp-text">Both Israeli unicorns emerged from storage. VAST Data ($9.1B) and WEKA ($1.6B) prove that AI-native storage capable of feeding GPU clusters at high speed creates extraordinary, durable value.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-num">05</div>
+        <div class="opp-title">Energy Is an Existential Challenge</div>
+        <div class="opp-text">11 Israeli companies are tackling AI data center power demands. With 3 already exited and $928M raised, energy is proven ground - and the problem is only growing.</div>
+      </div>
+      <div class="opp-card">
+        <div class="opp-num">06</div>
+        <div class="opp-title">Israel's Deep Tech Moat</div>
+        <div class="opp-text">Decades of excellence in signal processing, photonics, chip design, and systems architecture have created an irreplaceable talent pool. The founders in this ecosystem bring hardware depth that few startup ecosystems replicate.</div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- TOP 10 TABLE -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Company Rankings</div>
+    <h2>Top 10 Companies by Total Funding</h2>
+    <p class="section-sub">The most-funded Israeli AI infrastructure companies, spanning networking, storage, compute, and energy.</p>
+    <table class="co-table reveal">
+      <thead>
+        <tr>
+          <th>#</th><th>Company</th><th>Category</th><th>Total Funding</th><th>Stage</th><th>Team</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="co-rank">01</span></td>
+          <td><span class="co-name">DriveNets</span></td>
+          <td style="font-size:0.75rem;color:#32208C;font-weight:600;">Connectivity</td>
+          <td style="font-weight:700;font-size:0.95rem;">$697M</td>
+          <td><span class="stage-pill s-c">Series C</span></td>
+          <td style="font-size:0.78rem;color:#615E70;">500</td>
+        </tr>
+        <tr>
+          <td><span class="co-rank">02</span></td>
+          <td><span class="co-name">SolarEdge Technologies ✓</span></td>
+          <td style="font-size:0.75rem;color:#d97706;font-weight:600;">Energy</td>
+          <td style="font-weight:700;font-size:0.95rem;">$581M</td>
+          <td><span class="stage-pill s-exit">Exited ✓</span></td>
+          <td style="font-size:0.78rem;color:#615E70;">3027</td>
+        </tr>
+        <tr>
+          <td><span class="co-rank">03</span></td>
+          <td><span class="co-name" style="color:#d97706;">WEKA 🦄</span></td>
+          <td style="font-size:0.75rem;color:#035C59;font-weight:600;">Storage and Memory</td>
+          <td style="font-weight:700;font-size:0.95rem;">$412M</td>
+          <td><span class="stage-pill s-de">Series E</span></td>
+          <td style="font-size:0.78rem;color:#615E70;">530</td>
+        </tr>
+        <tr>
+          <td><span class="co-rank">04</span></td>
+          <td><span class="co-name" style="color:#d97706;">VAST Data 🦄</span></td>
+          <td style="font-size:0.75rem;color:#035C59;font-weight:600;">Storage and Memory</td>
+          <td style="font-weight:700;font-size:0.95rem;">$381M</td>
+          <td><span class="stage-pill s-de">Series E</span></td>
+          <td style="font-size:0.78rem;color:#615E70;">1098</td>
+        </tr>
+        <tr>
+          <td><span class="co-rank">05</span></td>
+          <td><span class="co-name">Infinidat</span></td>
+          <td style="font-size:0.75rem;color:#035C59;font-weight:600;">Storage and Memory</td>
+          <td style="font-weight:700;font-size:0.95rem;">$370M</td>
+          <td><span class="stage-pill s-c">Series C</span></td>
+          <td style="font-size:0.78rem;color:#615E70;">496</td>
+        </tr>
+        <tr>
+          <td><span class="co-rank">06</span></td>
+          <td><span class="co-name">Nostromo Energy ✓</span></td>
+          <td style="font-size:0.75rem;color:#d97706;font-weight:600;">Energy</td>
+          <td style="font-weight:700;font-size:0.95rem;">$317M</td>
+          <td><span class="stage-pill s-exit">Exited ✓</span></td>
+          <td style="font-size:0.78rem;color:#615E70;">33</td>
+        </tr>
+        <tr>
+          <td><span class="co-rank">07</span></td>
+          <td><span class="co-name">NextSilicon</span></td>
+          <td style="font-size:0.75rem;color:#7261C7;font-weight:600;">Compute</td>
+          <td style="font-weight:700;font-size:0.95rem;">$303M</td>
+          <td><span class="stage-pill s-c">Series C</span></td>
+          <td style="font-size:0.78rem;color:#615E70;">342</td>
+        </tr>
+        <tr>
+          <td><span class="co-rank">08</span></td>
+          <td><span class="co-name">ColorChip</span></td>
+          <td style="font-size:0.75rem;color:#32208C;font-weight:600;">Connectivity</td>
+          <td style="font-weight:700;font-size:0.95rem;">$156M</td>
+          <td><span class="stage-pill s-de">Series F</span></td>
+          <td style="font-size:0.78rem;color:#615E70;">60</td>
+        </tr>
+        <tr>
+          <td><span class="co-rank">09</span></td>
+          <td><span class="co-name">Xsight Labs</span></td>
+          <td style="font-size:0.75rem;color:#32208C;font-weight:600;">Connectivity</td>
+          <td style="font-weight:700;font-size:0.95rem;">$121M</td>
+          <td><span class="stage-pill s-de">Series D</span></td>
+          <td style="font-size:0.78rem;color:#615E70;">213</td>
+        </tr>
+        <tr>
+          <td><span class="co-rank">10</span></td>
+          <td><span class="co-name">Retym, Inc</span></td>
+          <td style="font-size:0.75rem;color:#32208C;font-weight:600;">Connectivity</td>
+          <td style="font-weight:700;font-size:0.95rem;">$115M</td>
+          <td><span class="stage-pill s-de">Series D</span></td>
+          <td style="font-size:0.78rem;color:#615E70;">77</td>
+        </tr></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- UNICORNS -->
+<section class="unicorn-section">
+  <div class="container">
+    <div class="section-eyebrow">Valuation Milestones</div>
+    <h2>Israeli Unicorns in AI Infrastructure</h2>
+    <p class="section-sub">Two Israeli storage startups have crossed the $1B valuation threshold - both in Storage &amp; Memory, proving that the data layer is where the most value is being created.</p>
+    <div class="unicorn-row reveal">
+      <div class="unicorn-card">
+        <div class="uni-label">🦄 Unicorn</div>
+        <div class="uni-name">VAST Data</div>
+        <div class="uni-val">$9.1B</div>
+        <div class="uni-meta">Stage: Series E · 1098 employees<br><br>The primary offering is an AI operating system that combines storage, database, and containerized computing functionalities, built on a DASE architecture to facilitate high-performance computing across large GPU clusters. It efficiently manages unstructured data to enhance both transactional and analytical processes, leading to improved insights.</div>
+        <span class="uni-cat">Storage &amp; Memory</span>
+      </div>
+      <div class="unicorn-card">
+        <div class="uni-label">🦄 Unicorn</div>
+        <div class="uni-name">WEKA</div>
+        <div class="uni-val">$1.6B</div>
+        <div class="uni-meta">Stage: Series E · 530 employees<br><br>The main product is a cloud-native data platform that supports high-performance applications in AI and high-performance computing, focusing on enhancing data processing and management efficiency. It employs technologies that optimize input/output rates, reduce latency, and improve energy efficiency.</div>
+        <span class="uni-cat">Storage &amp; Memory</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY BREAKDOWN -->
+<section>
+  <div class="container">
+    <div class="section-eyebrow">Category Deep Dive</div>
+    <h2>The Stack, Company by Company</h2>
+    <p class="section-sub">50 companies spanning six layers of AI infrastructure - each solving a distinct physical bottleneck.</p>
+    <div class="cat-grid">
+
+      <div class="cat-card reveal" style="--cat-color:#d97706; --cat-bg:rgba(217,119,6,0.07);">
+        <div class="cat-top"><div class="cat-icon">⚡</div><span class="cat-badge">3 Exits</span></div>
+        <div class="cat-name">Energy</div>
+        <div class="cat-funding">$928M</div>
+        <div class="cat-meta">11 companies · Total Funding Raised</div>
+        <div class="cat-desc">AI data centers now rival small cities in power consumption. This category covers clean energy generation, grid management, UPS systems, and power delivery. Three companies have already exited, validating strong market demand.</div>
+        <div class="cat-chips"><span class="chip exit">SolarEdge Technologies ✓</span><span class="chip exit">Nostromo Energy ✓</span><span class="chip exit">GenCell Energy ✓</span><span class="chip ">Standard Carbon</span><span class="chip ">VOCAI Ltd.</span><span class="chip ">BH Grid Solutions Ltd.</span><span class="chip ">TherMagiX</span><span class="chip ">NUGEN</span><span class="chip ">LAVA</span><span class="chip ">Salion Energy</span><span class="chip ">NanoTherma</span></div>
+      </div>
+
+      <div class="cat-card reveal" style="--cat-color:#0B9B85; --cat-bg:rgba(11,155,133,0.07);">
+        <div class="cat-top"><div class="cat-icon">❄️</div><span class="cat-badge">Early Stage</span></div>
+        <div class="cat-name">Cooling</div>
+        <div class="cat-funding">$50M</div>
+        <div class="cat-meta">8 companies · Total Funding Raised</div>
+        <div class="cat-desc">GPU clusters run at extreme temperatures. Traditional air cooling can't keep up with modern high-density processors. Liquid cooling, immersion cooling, and precision thermal management are becoming mandatory infrastructure.</div>
+        <div class="cat-chips"><span class="chip ">Actasys</span><span class="chip ">ZutaCore</span><span class="chip ">ENERIQS</span><span class="chip ">SolidT</span><span class="chip ">Sphere Technologies Ltd</span><span class="chip ">OASIX Energy</span><span class="chip ">himadhara.com</span><span class="chip ">Funpressor</span></div>
+      </div>
+
+      <div class="cat-card reveal" style="--cat-color:#7261C7; --cat-bg:rgba(114,97,199,0.07);">
+        <div class="cat-top"><div class="cat-icon">⚙️</div><span class="cat-badge">High Growth</span></div>
+        <div class="cat-name">Compute</div>
+        <div class="cat-funding">$759M</div>
+        <div class="cat-meta">9 companies · Total Funding Raised</div>
+        <div class="cat-desc">Beyond general-purpose GPUs, Israel's compute startups are building custom AI accelerators, neuromorphic chips, photonic processors, and domain-specific silicon targeting specific workloads with superior efficiency.</div>
+        <div class="cat-chips"><span class="chip ">NeuReality</span><span class="chip ">NextSilicon</span><span class="chip ">COGNIFIBER</span><span class="chip ">Chain Reaction Ltd.</span><span class="chip ">Speedata.io</span><span class="chip ">NeoLogic</span><span class="chip ">DualBird</span><span class="chip ">Majestic Labs ai</span><span class="chip ">Element labs</span></div>
+      </div>
+
+      <div class="cat-card reveal" style="--cat-color:#035C59; --cat-bg:rgba(3,92,89,0.07);">
+        <div class="cat-top"><div class="cat-icon">🗄️</div><span class="cat-badge">2 Unicorns</span></div>
+        <div class="cat-name">Storage &amp; Memory</div>
+        <div class="cat-funding">$1.3B</div>
+        <div class="cat-meta">7 companies · Total Funding Raised</div>
+        <div class="cat-desc">The most funded category - home to both Israeli unicorns. Training large models on petabytes of data requires storage that can keep GPUs fed at wire speed. Covers software-defined storage, AI-native file systems, and memory innovation.</div>
+        <div class="cat-chips"><span class="chip ">Infinidat</span><span class="chip unicorn">WEKA 🦄 $1.6B</span><span class="chip ">StorONE. The Only Cost-Efficient Storage Platform</span><span class="chip ">Lightbits Labs</span><span class="chip unicorn">VAST Data 🦄 $9.1B</span><span class="chip ">RAAAM Memory Technologies</span><span class="chip ">UnifabriX</span></div>
+      </div>
+
+      <div class="cat-card reveal" style="--cat-color:#32208C; --cat-bg:rgba(50,32,140,0.07);">
+        <div class="cat-top"><div class="cat-icon">🔗</div><span class="cat-badge">Deep Tech</span></div>
+        <div class="cat-name">Connectivity</div>
+        <div class="cat-funding">$1.3B</div>
+        <div class="cat-meta">8 companies · Total Funding Raised</div>
+        <div class="cat-desc">As AI clusters scale to tens of thousands of GPUs, the network becomes the bottleneck. Israel's connectivity startups are building photonic interconnects, silicon photonics chips, and disaggregated networking software.</div>
+        <div class="cat-chips"><span class="chip ">DustPhotonics</span><span class="chip ">DriveNets</span><span class="chip ">ColorChip</span><span class="chip ">Xsight Labs</span><span class="chip ">Teramount</span><span class="chip ">Retym, Inc</span><span class="chip ">NewPhotonics</span><span class="chip ">OptimalNets</span></div>
+      </div>
+
+      <div class="cat-card reveal" style="--cat-color:#0ACFB1; --cat-bg:rgba(10,207,177,0.07);">
+        <div class="cat-top"><div class="cat-icon">🎛️</div><span class="cat-badge">Emerging</span></div>
+        <div class="cat-name">Orchestration, Security &amp; Monitoring</div>
+        <div class="cat-funding">$51M</div>
+        <div class="cat-meta">7 companies · Total Funding Raised</div>
+        <div class="cat-desc">Even the best hardware is wasted without intelligent software to manage it. Covers MLOps platforms, GPU cluster schedulers, AI infrastructure security, and observability tools - the control plane of the AI factory.</div>
+        <div class="cat-chips"><span class="chip ">SCAILIUM</span><span class="chip ">ClearML</span><span class="chip ">HEQA Security</span><span class="chip ">CyberRidge</span><span class="chip ">Impala AI</span><span class="chip ">Invisify</span><span class="chip ">Niv-ai</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FUNDRAISERS -->
+<section class="raise-section">
+  <div class="container">
+    <div class="section-eyebrow">Live Market Activity</div>
+    <h2>Active Fundraisers</h2>
+    <p class="section-sub">21 companies closed funding rounds in 2024 or later - signalling robust investor appetite across the full stack.</p>
+    <div class="raise-table reveal">
+      <div class="raise-thead">
+        <div class="raise-th">Company</div>
+        <div class="raise-th">Category</div>
+        <div class="raise-th">Round</div>
+        <div class="raise-th" style="text-align:right;">Amount</div>
+        <div class="raise-th" style="text-align:right;">Date</div>
+      </div>
+      <div class="raise-row"><div class="raise-td co">DriveNets</div><div class="raise-td"><span class="rtag conn">Connectivity</span></div><div class="raise-td rnd">Post-IPO Secondary</div><div class="raise-td amt">$650M</div><div class="raise-td dt">Jul 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">Nostromo Energy</div><div class="raise-td"><span class="rtag energy">Energy</span></div><div class="raise-td rnd">Debt Financing</div><div class="raise-td amt">$306M</div><div class="raise-td dt">Dec 2024</div></div>
+      <div class="raise-row"><div class="raise-td co">SolarEdge Technologies</div><div class="raise-td"><span class="rtag energy">Energy</span></div><div class="raise-td rnd">Debt Financing</div><div class="raise-td amt">$300M</div><div class="raise-td dt">Jun 2024</div></div>
+      <div class="raise-row"><div class="raise-td co">WEKA</div><div class="raise-td"><span class="rtag storage">Storage</span></div><div class="raise-td rnd">Series E</div><div class="raise-td amt">$140M</div><div class="raise-td dt">May 2024</div></div>
+      <div class="raise-row"><div class="raise-td co">Majestic Labs ai</div><div class="raise-td"><span class="rtag compute">Compute</span></div><div class="raise-td rnd">Series A</div><div class="raise-td amt">$100M</div><div class="raise-td dt">Nov 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">Retym, Inc</div><div class="raise-td"><span class="rtag conn">Connectivity</span></div><div class="raise-td rnd">Series D</div><div class="raise-td amt">$75M</div><div class="raise-td dt">Mar 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">Speedata.io</div><div class="raise-td"><span class="rtag compute">Compute</span></div><div class="raise-td rnd">Series B</div><div class="raise-td amt">$44M</div><div class="raise-td dt">Jun 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">Teramount</div><div class="raise-td"><span class="rtag conn">Connectivity</span></div><div class="raise-td rnd">Series A</div><div class="raise-td amt">$41M</div><div class="raise-td dt">Jul 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">ZutaCore</div><div class="raise-td"><span class="rtag cooling">Cooling</span></div><div class="raise-td rnd">Later Stage</div><div class="raise-td amt">$40M</div><div class="raise-td dt">Apr 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">DustPhotonics</div><div class="raise-td"><span class="rtag conn">Connectivity</span></div><div class="raise-td rnd">Series B</div><div class="raise-td amt">$24M</div><div class="raise-td dt">Feb 2024</div></div>
+      <div class="raise-row"><div class="raise-td co">NeuReality</div><div class="raise-td"><span class="rtag compute">Compute</span></div><div class="raise-td rnd">Series A</div><div class="raise-td amt">$20M</div><div class="raise-td dt">Mar 2024</div></div>
+      <div class="raise-row"><div class="raise-td co">RAAAM Memory Technologies</div><div class="raise-td"><span class="rtag storage">Storage</span></div><div class="raise-td rnd">Series A</div><div class="raise-td amt">$18M</div><div class="raise-td dt">Nov 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">DualBird</div><div class="raise-td"><span class="rtag compute">Compute</span></div><div class="raise-td rnd">Series A</div><div class="raise-td amt">$17M</div><div class="raise-td dt">Nov 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">CyberRidge</div><div class="raise-td"><span class="rtag orch">Orchestration</span></div><div class="raise-td rnd">Seed Extension</div><div class="raise-td amt">$16M</div><div class="raise-td dt">Oct 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">Impala AI</div><div class="raise-td"><span class="rtag orch">Orchestration</span></div><div class="raise-td rnd">Seed</div><div class="raise-td amt">$11M</div><div class="raise-td dt">Oct 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">NeoLogic</div><div class="raise-td"><span class="rtag compute">Compute</span></div><div class="raise-td rnd">Series A</div><div class="raise-td amt">$10M</div><div class="raise-td dt">Aug 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">Standard Carbon</div><div class="raise-td"><span class="rtag energy">Energy</span></div><div class="raise-td rnd">Later Stage</div><div class="raise-td amt">$6M</div><div class="raise-td dt">Apr 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">COGNIFIBER</div><div class="raise-td"><span class="rtag compute">Compute</span></div><div class="raise-td rnd">Later Stage</div><div class="raise-td amt">$5M</div><div class="raise-td dt">Jul 2024</div></div>
+      <div class="raise-row"><div class="raise-td co">NUGEN</div><div class="raise-td"><span class="rtag energy">Energy</span></div><div class="raise-td rnd">Grant</div><div class="raise-td amt">$500K</div><div class="raise-td dt">May 2024</div></div>
+      <div class="raise-row"><div class="raise-td co">Actasys</div><div class="raise-td"><span class="rtag cooling">Cooling</span></div><div class="raise-td rnd">Later Stage</div><div class="raise-td amt">$297K</div><div class="raise-td dt">Sep 2025</div></div>
+      <div class="raise-row"><div class="raise-td co">OptimalNets</div><div class="raise-td"><span class="rtag conn">Connectivity</span></div><div class="raise-td rnd">-</div><div class="raise-td amt" style="color:rgba(255,255,255,0.35);">Undisclosed</div><div class="raise-td dt">Jan 2024</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING STRIP -->
+<section class="closing-strip">
+  <div class="closing-inner">
+    <div class="closing-stat"><span class="big">$4.5B</span><span class="lbl">Total Capital Deployed</span></div>
+    <div class="closing-stat"><span class="big">50</span><span class="lbl">Companies Mapped</span></div>
+    <div class="closing-stat"><span class="big">21</span><span class="lbl">Active Fundraisers</span></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- FOOTER -->
+<footer>
+  <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAxNiIgaGVpZ2h0PSIzNTkiIHZpZXdCb3g9IjAgMCAxMDE2IDM1OSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwMTQuMiAxNjguMTQ3SDg1NS4yMjlDODU2LjE3NCAxNzAuNjY1IDg1Ni45MDIgMTcyLjkyOCA4NTcuODQ2IDE3NS4xMTJDODc2LjAyOCAyMTYuOTQ2IDkzMi43NTggMjIzLjkxMiA5NjAuNTIyIDE4Ny43MDZDOTYxLjcwMyAxODYuMTUxIDk2Mi44NjQgMTg1LjU4MSA5NjQuNzkyIDE4NS42Qzk3OS42NDkgMTg1LjY3OSA5OTQuNTI1IDE4NS42NCAxMDA5LjQyIDE4NS42NEM5OTguNjk2IDIyMC44MDMgOTU3LjcyOCAyNTguODk4IDkwMi41MTQgMjUzLjMxQzg0NC40MDcgMjQ3LjQwNyA4MDIuNDc0IDE5NC40NTUgODExLjIzMSAxMzUuOTM1QzgxOS43NTEgNzkuMDI4IDg3My42ODYgMzkuMzU4NSA5MzEuODMzIDUwLjI3OTRDOTkwLjUxMSA2MS4yOTg3IDEwMjMuNjkgMTE3LjIyMiAxMDE0LjIgMTY4LjE2NlYxNjguMTQ3Wk05NjkuMTgxIDEzMC41NDNDOTYxLjU2NSAxMDguMjA5IDkzNy4wODcgODcuODYzMSA5MDUuODU5IDkxLjUwMzRDODkxLjM1NyA5My4xOTU2IDg3OS4wNTggOTkuNTkwOCA4NjkuMDQzIDExMC4yMTdDODYzLjUzMyAxMTYuMDYxIDg1OS4zNDIgMTIyLjczMSA4NTYuNTY3IDEzMC41NjNIOTY5LjE2MUw5NjkuMTgxIDEzMC41NDNaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNMC45NTcyNzUgMTUxLjA0N0MxLjA3NTM0IDkzLjM1MzEgNDguNjM1NSA0Ny42ODIgMTA1LjcgNDguNDEwMUMxNjEuMDEzIDQ5LjExODUgMjA2LjkgOTUuMzc5OSAyMDYuNzIzIDE1MS4yMjRDMjA2LjUyNiAyMDguNzQxIDE1OS41MTcgMjU0LjkyNCAxMDEuNzI1IDI1My43ODJDNDUuNjA1MSAyNTIuNjggMC45NTcyNzUgMjA2Ljg5MSAwLjk1NzI3NSAxNTEuMDQ3Wk0xNjMuOTg0IDE1MS4xMDZDMTYzLjk4NCAxMTguMjQ1IDEzNi45ODcgOTEuMTA5OSAxMDQuMjgzIDkxLjA5MDJDNzAuNzkyMSA5MS4wNTA4IDQzLjYxNzcgMTE3Ljk2OSA0My42MTc3IDE1MS4xODVDNDMuNjE3NyAxODMuNjkyIDcwLjY1NDQgMjEwLjgwNyAxMDIuNjg5IDIxMS4yNEMxMzUuNjg4IDIxMS42OTMgMTY0LjA0MyAxODUuMDQ5IDE2My45ODQgMTUxLjEwNloiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik01NTguMTYgMTUxLjE4NUM1NTguMTYgMjA4LjM0NyA1MTIuMDk2IDI1NC4xMTcgNDU0LjI4NCAyNTMuNzYyQzM5Ny41NTQgMjUzLjQyOCAzNTIuMzc1IDIwNi45NSAzNTIuNTEzIDE1MC44N0MzNTIuNjUgOTMuODI1MSAzOTkuNjc5IDQ3LjkzNzYgNDU2LjcwNCA0OC40MDk5QzUxMi4zNTEgNDguODgyMSA1NTguMTYgOTQuOTA3NCA1NTguMTYgMTUxLjE2NVYxNTEuMTg1Wk00NTUuMjI4IDIxMS4xNDFDNDg4LjUyMiAyMTEuMTQxIDUxNS40NDEgMTg0LjQyIDUxNS41NzkgMTUxLjI0NEM1MTUuNzE2IDExOC40MDIgNDg4LjUyMiA5MS4xMDk3IDQ1NS42NDEgOTEuMDlDNDIyLjM2NyA5MS4wOSAzOTUuMTczIDExNy45NjkgMzk1LjE3MyAxNTAuOTQ4QzM5NS4xNzMgMTg0LjE0NCA0MjIuMDkyIDIxMS4xNjEgNDU1LjIyOCAyMTEuMTYxVjIxMS4xNDFaIiBmaWxsPSJ3aGl0ZSIvPgo8cGF0aCBkPSJNNTU2Ljc0NCA5NS4wMjU1VjUyLjMyNTdINTU5LjM2MUM1NzYuNjc3IDUyLjMyNTcgNTkzLjk3MyA1Mi4zMjU3IDYxMS4yODkgNTIuMzI1N0M2MjAuNjM2IDUyLjMyNTcgNjI3LjkzNiA1Ny40MDI0IDYzMS4xMDQgNjYuMTk4MkM2NDcuNjczIDExMi4yMjMgNjY0LjIyMSAxNTguMjY4IDY4MC44MDkgMjA0LjI3NEM2ODEuMjAzIDIwNS4zNTYgNjgxLjc3MyAyMDYuODMyIDY4Mi42MzkgMjA3LjIwNkM2ODQuMzEyIDIwNy44OTUgNjg1LjQ1MyAyMDcuMTI3IDY4Ni4xODEgMjA1LjEyQzcwMi43MyAxNTguOTE4IDcxOS4zNTcgMTEyLjc1NSA3MzYuMDA0IDY2LjU5MThDNzM5LjQwOCA1Ny4xNjYzIDc0Ni4zNzQgNTIuMzI1NyA3NTYuNDY5IDUyLjMyNTdDNzczLjU0OCA1Mi4zMjU3IDc5MC42MDkgNTIuMzI1NyA4MDcuNjg5IDUyLjMyNTdIODEwLjQwNFY5NS4wMjU1SDgwNy44MDdDNzk2LjMxNSA5NS4wMjU1IDc4NC44NDMgOTUuMDY0OCA3NzMuMzUyIDk0Ljk4NjFDNzcxLjYyIDk0Ljk4NjEgNzcwLjkzMSA5NS41NzY1IDc3MC4zNjEgOTcuMTUwNkM3NTIuOTI3IDE0NS43NzMgNzM1LjQxNCAxOTQuMzc2IDcxNy45NCAyNDIuOTk5QzcxNi4wMzIgMjQ4LjMzMiA3MTMuODI4IDI0OS44NjYgNzA4LjEwMiAyNDkuODg2QzY5MS42NTEgMjQ5Ljg4NiA2NzUuMjIxIDI0OS44ODYgNjU4Ljc3MSAyNDkuODg2QzY1My40OTcgMjQ5Ljg4NiA2NTEuMjM0IDI0OC4zMTIgNjQ5LjQ0NCAyNDMuMzM0QzYzMS45NSAxOTQuNzMxIDYxNC40MzggMTQ2LjEyOCA1OTYuOTg0IDk3LjUwNDhDNTk2LjMzNCA5NS42OTQ1IDU5NS41NDcgOTQuOTg2MSA1OTMuNTIxIDk1LjAwNThDNTgyLjE4NiA5NS4xMjM5IDU3MC44NzIgOTUuMDY0OCA1NTkuNTM4IDk1LjA2NDhINTU2Ljc0NFY5NS4wMjU1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTIzMC44NjcgMjQ5LjY1QzIzMC44NjcgMjQ4LjUwOSAyMzAuODY3IDI0Ny41NjQgMjMwLjg2NyAyNDYuNjM5QzIzMC44NjcgMTk2LjA2OSAyMzAuODY3IDE0NS40OTggMjMwLjg2NyA5NC45NDY3QzIzMC44NjcgNzMuNjM2MiAyNDcuNDM1IDU1LjEzOTUgMjY4LjY4NyA1Mi43MTkyQzI3MC43OTIgNTIuNDgzIDI3Mi45MTggNTIuMzQ1MyAyNzUuMDQzIDUyLjM0NTNDMzAwLjM2OCA1Mi4zMjU2IDMyNS42OTIgNTIuMzQ1MyAzNTEuMDM3IDUyLjM0NTNIMzUzLjkyOVY5NS4wNDUxSDM1MS4yNTNDMzI2LjQwMSA5NS4wNDUxIDMwMS41NDggOTUuMDQ1MSAyNzYuNjc2IDk1LjA0NTFDMjc0LjQ5OCA5NS4wNDUxIDI3My40MSA5Ni4xMTQyIDI3My40MSA5OC4yNTI1QzI3My40MSAxNDcuNjQzIDI3My40MSAxOTcuMDMzIDI3My40MSAyNDYuNDIzQzI3My40MSAyNDcuNDI2IDI3My40MSAyNDguNDUgMjczLjQxIDI0OS42N0gyMzAuODg3TDIzMC44NjcgMjQ5LjY1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTAuNzIxMTkxIDI1NS44NDhINDMuNTE5NEM0NC4zNDU4IDI3Ni42ODcgNTIuOTg0MiAyOTMuNDcxIDcwLjI2MDkgMzA1LjM5NkM4MS4zNTg5IDMxMy4wNSA5My44NTQgMzE2LjQ1NCAxMDcuMjk0IDMxNS42MjhDMTIzLjExNCAzMTQuNjQ0IDEzNi42MzMgMzA4LjM2NyAxNDcuNTM0IDI5Ni44NTZDMTU4LjM1NiAyODUuNDQzIDE2My43MjggMjcxLjY2OSAxNjQuMDYzIDI1NS44NjhIMjA2Ljg0MUMyMDUuNzM5IDI5MC4zNjIgMTkyLjI2IDMxOC43MTcgMTY0LjA2MyAzMzguNjMxQzEyOS4yOTMgMzYzLjE2OCA5MS44MDc2IDM2NS42NjcgNTQuNDIwNiAzNDUuNDE5QzE5LjUzMjcgMzI2LjUxIDIuNTcwODYgMjk1LjYxNiAwLjcyMTE5MSAyNTUuODQ4WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTIyMy4xNzMgMC4wMjM0Mzc1QzIyNy4yMjEgMC4wMjM0Mzc1IDIyOS43MjEgMC41MjM0MzggMjMzLjQyNSAxLjM4MTE3QzIzNS4yMjEgMS43OTcwNiAyMzUuODI2IDIuNDgzMSAyMzYuMjE5IDQuMTk1MDNDMjQyLjQzNyAzMS4yNzEgMjIzLjE5MyA1OC4yODggMTk1LjUwNyA2MS4zMzhDMTkwLjA1NiA2MS45MjgzIDE4NC43MDQgNjEuNTkzOCAxNzkuMzUyIDYwLjQ3MjJDMTc3Ljg5NiA2MC4xNzcgMTc3LjMyNSA1OS41MDggMTc2Ljk5MSA1OC4wNzE2QzE3MC4xMDQgMjguNTM1OSAxOTIuNjM0IDAuMzE4NTk3IDIyMy4xNzMgMC4wMjM0Mzc1WiIgZmlsbD0iIzBBQ0ZCMSIvPgo8L3N2Zz4=" alt="Grove Ventures">
+  <div class="footer-info">
+    Israel Data Center &amp; AI Infrastructure Ecosystem Map · 2026<br>
+    50 Companies · 6 Categories · Source: Excel Data Only
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
